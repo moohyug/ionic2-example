@@ -1,23 +1,36 @@
-import { Component } from '@angular/core';
-import { ionicBootstrap, Platform } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { Nav, MenuController, ionicBootstrap, Platform } from 'ionic-angular';
+import {HTTP_PROVIDERS} from '@angular/http';
 import { StatusBar } from 'ionic-native';
 
-import { HomePage } from './pages/home/home';
-
+import { CommentPage } from './pages/comment/comment';
+import { PlaygroundPage } from './pages/playground/playground';
 
 @Component({
-  template: '<ion-nav [root]="rootPage"></ion-nav>'
+  templateUrl: 'build/app.html',
 })
 export class MyApp {
-  rootPage: any = HomePage;
 
-  constructor(public platform: Platform) {
+  @ViewChild(Nav) nav: Nav;
+
+  rootPage: any = PlaygroundPage;
+
+  constructor(public platform: Platform, public menu: MenuController) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       StatusBar.styleDefault();
     });
   }
+
+  openPage(page): void {
+    this.menu.close();
+    this.nav.setRoot(page);
+  }
+
+  logout() {
+    
+  }
 }
 
-ionicBootstrap(MyApp);
+ionicBootstrap(MyApp, [HTTP_PROVIDERS, ]);
