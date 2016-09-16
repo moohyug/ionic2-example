@@ -3,6 +3,7 @@ import { Nav, MenuController, ionicBootstrap, Platform } from 'ionic-angular';
 import {HTTP_PROVIDERS} from '@angular/http';
 import { StatusBar } from 'ionic-native';
 
+import { LoginPage } from './pages/login/login';
 import { RegisterPage } from './pages/register/register';
 import { CommentPage } from './pages/comment/comment';
 import { PlaygroundPage } from './pages/playground/playground';
@@ -14,7 +15,7 @@ export class MyApp {
 
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = RegisterPage;
+  rootPage: any = LoginPage;
 
   constructor(public platform: Platform, public menu: MenuController) {
     platform.ready().then(() => {
