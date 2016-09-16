@@ -3,6 +3,7 @@ import { Nav, MenuController, ionicBootstrap, Platform } from 'ionic-angular';
 import {HTTP_PROVIDERS} from '@angular/http';
 import { StatusBar } from 'ionic-native';
 
+import { RegisterPage } from './pages/register/register';
 import { CommentPage } from './pages/comment/comment';
 import { PlaygroundPage } from './pages/playground/playground';
 
@@ -13,7 +14,7 @@ export class MyApp {
 
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = PlaygroundPage;
+  rootPage: any = RegisterPage;
 
   constructor(public platform: Platform, public menu: MenuController) {
     platform.ready().then(() => {
@@ -29,8 +30,11 @@ export class MyApp {
   }
 
   logout() {
-    
+
   }
 }
 
-ionicBootstrap(MyApp, [HTTP_PROVIDERS, ]);
+ionicBootstrap(MyApp, [HTTP_PROVIDERS, ], {
+  backButtonText: '뒤로 가기',
+  statusbarPadding: true
+});
