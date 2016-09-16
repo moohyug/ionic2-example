@@ -15,7 +15,7 @@ export class MyApp {
 
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = PlaygroundPage;
+  rootPage: any = CommentPage;
 
   constructor(public platform: Platform, public menu: MenuController) {
     platform.ready().then(() => {
